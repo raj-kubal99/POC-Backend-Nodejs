@@ -1,0 +1,26 @@
+DB SCHEMA
+
+create table Products( 
+	ID int auto_increment primary key,
+    Category int not null,
+    ProductName varchar(255) not null,
+    Rate varchar(10) ,
+    IsActive boolean not null default true,
+    check (Category between 1 and 5)
+);
+
+create table DiscountOffers(
+    ID int auto_increment primary key,
+    OfferName varchar(255) not null,
+    Category int not null,
+    ApplicableFrom Date not null,
+    ApplicableTo Date not null,
+    IsActive boolean not null default true,
+    check (Category between 1 and 5)
+);
+
+create user 'raj_kubal'@'localhost' identified by 'Test123456';
+
+grant all privileges on rajKubal.* to 'raj_kubal'@'localhost';
+
+flush privileges;
